@@ -3,7 +3,7 @@ const chai = require('chai');
 const expect = chai.expect;
 
 describe('Watchdog', function () {
-    this.timeout(15000);
+    this.timeout(5000);
 
     it('should create a new instance', () => {
         const watchdog = new Watchdog(1, 1, true);
@@ -26,3 +26,8 @@ describe('Watchdog', function () {
     });
 
 });
+
+// Make sure the test exits
+setTimeout(() => {
+    process.exit(0);
+}, 10000);
