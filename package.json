@@ -1,5 +1,5 @@
 {
-  "name": "watchdog",
+  "name": "event-watchdog",
   "version": "0.0.1",
   "description": "Will emit events if a monitor dosn´t update",
   "main": "index.js",
