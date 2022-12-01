@@ -23,10 +23,18 @@ class Watchdog extends NodeEvents {
         }, this.#check_interval);
     }
 
+    #logdebug(message) {
+        if(process.log){
+            process.log.debug(message);
+        } else {
+            console.debug(message);
+        }
+    }
+
     #check() {
         const now = Date.now();
         for (let monitor in this.#store) {
-            if(this.#debug) console.log(`Monitor ${monitor} last update: ${now - this.#store[monitor].lastUpdate}ms ago`);
+            if(this.#debug) this.#logdebug(`Monitor ${monitor} last update: ${now - this.#store[monitor].lastUpdate}ms ago. Timeout is: ${this.#store[monitor].timeout}ms`);
             if (now - this.#store[monitor].lastUpdate > this.#store[monitor].timeout && !this.#store[monitor].isTimeout) {
                 this.#store[monitor].isTimeout = true;
                 this.emit('timeout', {monitor: monitor, offline_since: this.#store[monitor].lastUpdate});
