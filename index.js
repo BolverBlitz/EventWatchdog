@@ -12,7 +12,7 @@ class Watchdog extends NodeEvents {
      * @param {Number} [check_interval] | Check interval in seconds
      * @param {Boolean} [debug] | Debug mode
      */
-    constructor(timeout, check_interval = 1000, debug = false) {
+    constructor(timeout, check_interval = 600, debug = false) {
         super();
         this.#timeout_time = timeout * 1000 || 60 * 1000;
         this.#check_interval = check_interval * 1000;
