@@ -8,8 +8,8 @@ class Watchdog extends NodeEvents {
 
     /**
      * Watchdgog constructor
-     * @param {Number} timeout | Timeout in milliseconds 
-     * @param {Number} [check_interval] | Check interval in milliseconds
+     * @param {Number} timeout | Timeout in seconds 
+     * @param {Number} [check_interval] | Check interval in seconds
      * @param {Boolean} [debug] | Debug mode
      */
     constructor(timeout, check_interval = 1000, debug = false) {
